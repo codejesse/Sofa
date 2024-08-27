@@ -1,8 +1,3 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/cEv8ZlW7bef
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -11,6 +6,7 @@ import {
   NavigationMenuList,
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
+import Image from "next/image";
 
 export default function Component() {
   return (
@@ -70,7 +66,8 @@ export default function Component() {
         className="flex items-center mr-6 hidden lg:flex"
         prefetch={false}
       >
-        <MountainIcon className="h-6 w-6" />
+        {/* <MountainIcon className="h-6 w-6" /> */}
+        <Image src="/logo.svg" width={200} height={200} alt="logo" />
         <span className="sr-only">Acme Inc</span>
       </Link>
       <div className="flex w-full justify-center">
@@ -120,6 +117,10 @@ export default function Component() {
           <SearchIcon className="h-6 w-6" />
           <span className="sr-only">Search</span>
         </Button>
+        <Button variant="outline" size="icon" className="hidden lg:flex">
+          <SearchIcon className="h-6 w-6" />
+          <span className="sr-only">Search</span>
+        </Button>
         <Button variant="outline" size="icon" className="lg:hidden">
           <MenuIcon className="h-6 w-6" />
           <span className="sr-only">Toggle navigation menu</span>
@@ -129,7 +130,7 @@ export default function Component() {
   );
 }
 
-function MenuIcon(props:any) {
+function MenuIcon(props: any) {
   return (
     <svg
       {...props}
@@ -150,7 +151,7 @@ function MenuIcon(props:any) {
   );
 }
 
-function MountainIcon(props:any) {
+function MountainIcon(props: any) {
   return (
     <svg
       {...props}
@@ -169,7 +170,7 @@ function MountainIcon(props:any) {
   );
 }
 
-function SearchIcon(props:any) {
+function SearchIcon(props: any) {
   return (
     <svg
       {...props}
