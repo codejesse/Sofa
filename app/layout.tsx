@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Syne } from "next/font/google";
 import "./globals.css";
+import Navbar from "../components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
-const syne = Syne({ subsets: ["latin"]});
+const syne = Syne({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Sofa | Deals 🛋",
@@ -17,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={syne.className}>{children}</body>
+      <body className={syne.className}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
