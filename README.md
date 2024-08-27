@@ -1,10 +1,18 @@
 ## 🛋 Sofa commerce
 
+![image](https://github.com/user-attachments/assets/7697fb78-c4b7-4282-b526-50964c596245)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started with Sofa
 
-First, run the development server:
+First, clone the project:
+
+```bash
+git clone https://github.com/codejesse/Sofa.git
+```
+
+Then, start the development server:
 
 ```bash
 npm run dev
