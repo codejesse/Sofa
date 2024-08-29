@@ -89,7 +89,10 @@ export function AddProductForm({
     <>
       <p>{status}</p>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="space-y-8 mx-80"
+        >
           <FormField
             control={form.control}
             name="name"
@@ -134,6 +137,22 @@ export function AddProductForm({
                 <FormControl>
                   <Input placeholder="10" {...field} />
                 </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="category"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Category</FormLabel>
+                <FormControl>
+                  <Input placeholder="e.g Furniture" {...field} />
+                </FormControl>
+                <FormDescription>
+                  This is the display name of your product.
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
