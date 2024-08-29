@@ -38,5 +38,5 @@ db.version(1).stores({
   cart: "++id, productId, quantity",
 });
 
-export type { Product };
+export type { Product, Cart };
 export { db };
