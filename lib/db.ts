@@ -28,15 +28,14 @@ interface Cart {
 }
 
 const db = new Dexie("SofaDatabase") as Dexie & {
-  products: EntityTable<
-    Product,
-    "id" // primary key "id" (for the typings only)
-  >;
+  products: EntityTable<Product, "id">;
+  cart: EntityTable<Cart, "id">;
 };
 
 // Schema declaration:
 db.version(1).stores({
-  friends: "++id, name, age", // primary key "id" (for the runtime!)
+  products: "++id, name, description, price, category, image",
+  cart: "++id, productId, quantity",
 });
 
 export type { Product };
