@@ -22,7 +22,7 @@ export default function Component() {
         <SheetContent side="left">
           <div className="flex w-full items-center justify-between px-4 py-4 sm:px-6">
             <Link href="#" className="flex items-center" prefetch={false}>
-              <Image src="/logo.svg" width={200} height={200} alt="logo" />
+              <Image className="ml-[-20px]" src="/logo.svg" width={150} height={150} alt="logo" />
               <span className="sr-only">Sofa Inc</span>
             </Link>
             <Button variant="outline" size="icon" className="lg:hidden">

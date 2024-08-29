@@ -1,9 +1,43 @@
-import Dexie from "dexie";
+// import Dexie from "dexie";
 
-const db = new Dexie("sofaDB");
+// const db = new Dexie("sofaDB");
+// db.version(1).stores({
+//   products: "++id, name, description, price, category, image",
+//   cart: "++id, productId, quantity",
+// });
+
+// export { db };
+
+// db.ts
+import Dexie, { type EntityTable } from "dexie";
+
+interface Product {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  image: string;
+  age: number;
+}
+
+interface Cart {
+  id: number;
+  productId: number;
+  quantity: number;
+}
+
+const db = new Dexie("SofaDatabase") as Dexie & {
+  products: EntityTable<
+    Product,
+    "id" // primary key "id" (for the typings only)
+  >;
+};
+
+// Schema declaration:
 db.version(1).stores({
-  products: "++id, name, description, price, category, image",
-  cart: "++id, productId, quantity",
+  friends: "++id, name, age", // primary key "id" (for the runtime!)
 });
 
+export type { Product };
 export { db };
