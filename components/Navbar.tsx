@@ -14,7 +14,7 @@ export default function Component() {
     <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6">
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="outline" size="icon" className="lg:hidden">
+          <Button variant="outline" size="icon" className="lg:hidden border-none">
             <MenuIcon className="h-6 w-6" />
             <span className="sr-only">Toggle navigation menu</span>
           </Button>
@@ -67,7 +67,7 @@ export default function Component() {
         className="flex items-center mr-6 hidden lg:flex"
         prefetch={false}
       >
-        <Image src="/logo.svg" width={200} height={200} alt="logo" />
+        <Image src="/logo.svg" width={150} height={150} alt="logo" />
         <span className="sr-only">Sofa Inc</span>
       </Link>
       <div className="flex w-full justify-center">
@@ -113,15 +113,23 @@ export default function Component() {
         </NavigationMenu>
       </div>
       <div className="ml-auto flex items-center gap-4">
-        <Button variant="outline" size="icon" className="hidden lg:flex border-none">
+        <Button
+          variant="outline"
+          size="icon"
+          className="hidden lg:flex border-none"
+        >
           <SearchIcon className="h-6 w-6" />
           <span className="sr-only">Search</span>
         </Button>
-        <Button variant="outline" size="icon" className="hidden lg:flex border-none">
+        <Button
+          variant="outline"
+          size="icon"
+          className="hidden lg:flex border-none"
+        >
           <ShoppingBag className="h-6 w-6" />
           <span className="sr-only">Shopping bag</span>
         </Button>
-        <Image src="/logo.svg" width={200} height={200} alt="logo" />
+        {/* <Image src="/logo.svg" width={200} height={200} alt="logo" /> */}
         <Button variant="outline" size="icon" className="lg:hidden border-none">
           <ShoppingBag className="h-6 w-6" />
         </Button>
