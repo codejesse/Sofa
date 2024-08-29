@@ -18,7 +18,7 @@ interface Product {
   price: number;
   category: string;
   image: string;
-  age: number;
+  created_at: string;
 }
 
 interface Cart {
@@ -34,7 +34,7 @@ const db = new Dexie("SofaDatabase") as Dexie & {
 
 // Schema declaration:
 db.version(1).stores({
-  products: "++id, name, description, price, category, image",
+  products: "++id, name, description, price, category, image, created_at",
   cart: "++id, productId, quantity",
 });
 
