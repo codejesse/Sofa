@@ -21,7 +21,7 @@ export default function Component() {
         </SheetTrigger>
         <SheetContent side="left">
           <div className="flex w-full items-center justify-between px-4 py-4 sm:px-6">
-            <Link href="#" className="flex items-center" prefetch={false}>
+            <Link href="/" className="flex items-center" prefetch={false}>
               <Image className="ml-[-20px]" src="/logo.svg" width={150} height={150} alt="logo" />
               <span className="sr-only">Sofa Inc</span>
             </Link>
@@ -32,7 +32,7 @@ export default function Component() {
           </div>
           <nav className="grid gap-2 py-6">
             <Link
-              href="#"
+              href="/"
               className="flex w-full items-center py-2 text-lg font-semibold"
               prefetch={false}
             >
@@ -63,7 +63,7 @@ export default function Component() {
         </SheetContent>
       </Sheet>
       <Link
-        href="#"
+        href="/"
         className="flex items-center mr-6 hidden lg:flex"
         prefetch={false}
       >

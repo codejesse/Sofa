@@ -33,9 +33,7 @@ const formSchema = z.object({
   description: z.string().min(2, {
     message: "Product description must be at least 2 characters.",
   }),
-  price: z.number().min(2, {
-    message: "Must be a minimum of 2 digits or must input a number",
-  }),
+  price: z.coerce.number().gte(2, "Must be 2 and above"),
   category: z.string().min(4, {
     message: "Please input a category for your product",
   }),
@@ -66,14 +64,15 @@ export function AddProductForm({
   async function onSubmit(values: z.infer<typeof formSchema>) {
     // ✅ Push to indexdb SofaDatabase.
     try {
-      // Add the new friend!
+      // Add the new Produc!
+      // Bug: actually pass the field data to the db
       const id = await db.products.add({
-        name,
-        description,
-        price,
-        category,
-        image,
-        created_at,
+        name: values.name,
+        description: values.description,
+        price: values.price,
+        category: values.category,
+        image: values.image,
+        created_at: values.created_at,
       });
 
       setStatus(`Product ${name} successfully added. Got id ${id}`);
@@ -85,13 +84,15 @@ export function AddProductForm({
   const [productName, setName] = useState("");
   const [status, setStatus] = useState("");
 
+  console.log(name)
+
   return (
     <>
       <p>{status}</p>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-8 mx-80"
+          className="space-y-8 mx-14 lg:mx-80 mt-10"
         >
           <FormField
             control={form.control}

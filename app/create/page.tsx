@@ -20,7 +20,9 @@ const page = ({
 }: ProductProps) => {
   return (
     <div>
-      <h1>Create a new product entry</h1>
+      <h1 className="font-semibold text-4xl text-center">
+        Create a new product entry
+      </h1>
       <AddProductForm
         name={name}
         description={description}
