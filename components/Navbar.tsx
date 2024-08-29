@@ -7,6 +7,7 @@ import {
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
 import Image from "next/image";
+import { ChevronRightCircle, ShoppingBag } from "lucide-react";
 
 export default function Component() {
   return (
@@ -21,8 +22,8 @@ export default function Component() {
         <SheetContent side="left">
           <div className="flex w-full items-center justify-between px-4 py-4 sm:px-6">
             <Link href="#" className="flex items-center" prefetch={false}>
-              <MountainIcon className="h-6 w-6" />
-              <span className="sr-only">Acme Inc</span>
+              <Image src="/logo.svg" width={200} height={200} alt="logo" />
+              <span className="sr-only">Sofa Inc</span>
             </Link>
             <Button variant="outline" size="icon" className="lg:hidden">
               <SearchIcon className="h-6 w-6" />
@@ -66,9 +67,8 @@ export default function Component() {
         className="flex items-center mr-6 hidden lg:flex"
         prefetch={false}
       >
-        {/* <MountainIcon className="h-6 w-6" /> */}
         <Image src="/logo.svg" width={200} height={200} alt="logo" />
-        <span className="sr-only">Acme Inc</span>
+        <span className="sr-only">Sofa Inc</span>
       </Link>
       <div className="flex w-full justify-center">
         <NavigationMenu className="hidden lg:flex">
@@ -113,17 +113,17 @@ export default function Component() {
         </NavigationMenu>
       </div>
       <div className="ml-auto flex items-center gap-4">
-        <Button variant="outline" size="icon" className="hidden lg:flex">
+        <Button variant="outline" size="icon" className="hidden lg:flex border-none">
           <SearchIcon className="h-6 w-6" />
           <span className="sr-only">Search</span>
         </Button>
-        <Button variant="outline" size="icon" className="hidden lg:flex">
-          <SearchIcon className="h-6 w-6" />
-          <span className="sr-only">Search</span>
+        <Button variant="outline" size="icon" className="hidden lg:flex border-none">
+          <ShoppingBag className="h-6 w-6" />
+          <span className="sr-only">Shopping bag</span>
         </Button>
-        <Button variant="outline" size="icon" className="lg:hidden">
-          <MenuIcon className="h-6 w-6" />
-          <span className="sr-only">Toggle navigation menu</span>
+        <Image src="/logo.svg" width={200} height={200} alt="logo" />
+        <Button variant="outline" size="icon" className="lg:hidden border-none">
+          <ShoppingBag className="h-6 w-6" />
         </Button>
       </div>
     </header>
@@ -131,24 +131,7 @@ export default function Component() {
 }
 
 function MenuIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="4" x2="20" y1="12" y2="12" />
-      <line x1="4" x2="20" y1="6" y2="6" />
-      <line x1="4" x2="20" y1="18" y2="18" />
-    </svg>
-  );
+  return <ChevronRightCircle />;
 }
 
 function MountainIcon(props: any) {
