@@ -81,10 +81,7 @@ export function AddProductForm({
     }
   }
 
-  const [productName, setName] = useState("");
   const [status, setStatus] = useState("");
-
-  console.log(name)
 
   return (
     <>
