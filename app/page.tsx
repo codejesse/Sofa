@@ -8,7 +8,7 @@ const ProductList = dynamic(() => import("../components/ProductList"), {
 
 export default function Home() {
   return (
-    <div>
+    <div className="pt-24">
       <Head>
         <title>Sofa | Home page</title>
         <meta name="description" content="Shop furniture and sofas" />
