@@ -17,9 +17,11 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Slider } from "@/components/ui/slider";
 import { db } from "@/lib/db";
+import { SkeletonCard } from "./SkeletonCard";
 
 const ProductCard = dynamic(() => import("../components/ProductCard"), {
-  loading: () => <p>Loading...</p>,
+  //make this a skeleton loader
+  loading: () => <SkeletonCard />,
 });
 
 // function FilterComponent() {

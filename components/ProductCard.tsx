@@ -1,5 +1,6 @@
 import { Heart, ShoppingBag } from "lucide-react";
 import Image from "next/image";
+import noImage from "../app/no-image.png";
 import React from "react";
 
 interface ProductProps {
@@ -19,7 +20,7 @@ const ProductCard = ({ product }: ProductProps) => {
       <div>
         <Image
           className="rounded-t-3xl w-full"
-          src="https://mysleepyhead.com/media/catalog/product/4/t/4thaug_2ndhalf5889_green.jpg"
+          src={product.image || noImage}
           width={290}
           height={500}
           alt="product-image"
@@ -36,9 +37,7 @@ const ProductCard = ({ product }: ProductProps) => {
           </div>
         </div>
         <div>
-          <h3 className="font-medium">
-            ${product.price}
-          </h3>
+          <h3 className="font-medium">${product.price}</h3>
         </div>
       </div>
     </div>
