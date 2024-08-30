@@ -15,14 +15,17 @@ const ProductCard = () => {
         />
       </div>
       <div>
-        <div className="flex flex-row mt-2 w-full border">
+        <div className="flex flex-row mt-4 w-full">
           <h3 className="font-medium overflow-hidden truncate ... w-52">
             Product name goes here now
           </h3>
-          <div className="flex flex-row gap-2 m-auto border">
+          <div className="flex flex-row gap-2 ml-24 md:ml-12 lg:ml-12">
             <ShoppingBag size={20} />
             <Heart size={20} />
           </div>
+        </div>
+        <div>
+          <h3 className="font-medium">$100</h3>
         </div>
       </div>
     </div>
