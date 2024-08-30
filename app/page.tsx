@@ -1,7 +1,10 @@
-import ProductCard from "@/components/ProductCard";
-import ProductList from "@/components/ProductList";
 import Head from "next/head";
-import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const ProductList = dynamic(() => import("../components/ProductList"), {
+  //👨🏿‍💻 Add a custom loader
+  loading: () => <p>Loading...</p>,
+});
 
 export default function Home() {
   return (
