@@ -2,7 +2,18 @@ import { Heart, ShoppingBag } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
-const ProductCard = () => {
+interface ProductProps {
+  product: {
+    id: number;
+    name: string;
+    description: string;
+    price: number;
+    image: string;
+    category: string;
+  };
+}
+
+const ProductCard = ({ product }: ProductProps) => {
   return (
     <div>
       <div>
@@ -17,15 +28,17 @@ const ProductCard = () => {
       <div>
         <div className="flex flex-row mt-4 w-full">
           <h3 className="font-medium overflow-hidden truncate ... w-52">
-            Product name goes here now
+            {product.name}
           </h3>
           <div className="flex flex-row gap-2 ml-24 md:ml-12 lg:ml-12">
-            <ShoppingBag size={20} />
             <Heart size={20} />
+            <ShoppingBag size={20} />
           </div>
         </div>
         <div>
-          <h3 className="font-medium">$100</h3>
+          <h3 className="font-medium">
+            ${product.price}
+          </h3>
         </div>
       </div>
     </div>
