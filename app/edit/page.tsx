@@ -1,4 +1,5 @@
 import React from "react";
+import EditProduct from "./components/EditProductForm";
 
 interface ProductProps {
   name: string;
@@ -22,6 +23,7 @@ const page = ({
       <h1 className="font-semibold text-4xl text-center">
         Edit a product entry
       </h1>
+      <EditProduct />
     </div>
   );
 };
