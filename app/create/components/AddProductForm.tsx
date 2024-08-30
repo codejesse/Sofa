@@ -120,8 +120,21 @@ export function AddProductForm({
                   />
                 </FormControl>
                 <FormDescription>
-                  This is the display name of your product.
+                  This is the description of your product.
                 </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="image"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Image URL</FormLabel>
+                <FormControl>
+                  <Input placeholder="URL" {...field} />
+                </FormControl>
                 <FormMessage />
               </FormItem>
             )}
