@@ -71,8 +71,7 @@ export default function EditProduct() {
 
   return (
     <div className="container mx-auto mt-10">
-      <h1 className="text-2xl font-bold mb-4">Edit Product</h1>
-      <div className="mb-4">
+      <div className="mb-4 mx-14 lg:mx-80 mt-10">
         <label className="block mb-2 text-sm font-medium text-gray-900">
           Select Product
         </label>
