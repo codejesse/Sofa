@@ -2,6 +2,7 @@ import { Heart, ShoppingBag } from "lucide-react";
 import Image from "next/image";
 import noImage from "../app/no-image.png";
 import React from "react";
+import Link from "next/link";
 
 interface ProductProps {
   product: {
@@ -17,15 +18,18 @@ interface ProductProps {
 const ProductCard = ({ product }: ProductProps) => {
   return (
     <div>
-      <div>
-        <Image
-          className="rounded-t-3xl w-full"
-          src={product.image || noImage}
-          width={290}
-          height={500}
-          alt="product-image"
-        />
-      </div>
+      <Link href={`/product/${product.id}`}>
+        <div>
+          <Image
+            className="rounded-t-3xl w-full border"
+            src={product.image || noImage}
+            width={290}
+            height={500}
+            alt="product-image"
+            priority
+          />
+        </div>
+      </Link>
       <div>
         <div className="flex flex-row mt-4 w-full">
           <h3 className="font-medium overflow-hidden truncate ... w-52">

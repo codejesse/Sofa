@@ -140,9 +140,15 @@ const ProductList: FC = () => {
         </button>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 justify-items-center">
-        {productData?.map((product: any, index: number) => {
-          return <ProductCard product={product} />;
-        })}
+        {!productData? (
+          <p>No products found</p>
+        ) : (
+          <>
+            {productData?.map((product: any, index: number) => {
+              return <ProductCard product={product} />;
+            })}
+          </>
+        )}
       </div>
     </>
   );
