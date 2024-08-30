@@ -1,4 +1,5 @@
 import ProductCard from "@/components/ProductCard";
+import ProductList from "@/components/ProductList";
 import Head from "next/head";
 import Image from "next/image";
 
@@ -24,8 +25,8 @@ export default function Home() {
         </p>
       </div>
       {/***********  Product Grid ***********/}
-      <div className="border m-5 lg:m-10 md:m-10">
-        <ProductCard />
+      <div className="m-5 lg:m-10 md:m-10">
+        <ProductList />
       </div>
     </div>
   );

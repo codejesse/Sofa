@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { db } from "@/lib/db"; // Adjust the import path
+import { db } from "@/lib/db";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -23,6 +23,8 @@ const formSchema = z.object({
   }),
   image: z.string(),
 });
+
+//TO DO: implement delete button
 
 export default function EditProduct() {
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
