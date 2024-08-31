@@ -23,10 +23,21 @@ export default function Page({ params }: { params: { id: string } }) {
             <ShoppingBag />
             <p className="my-auto">Add to Cart</p>
           </Button>
-          <div className="border bg-white w-full rounded-xl h-full">
-            <div className="flex flex-row p-6">
-              <h3 className="flex-1 text-2xl">Light sofa something</h3>
+          <div className="border bg-white w-full rounded-xl h-full p-6">
+            <div className="flex flex-row">
+              <h3 className="flex-1 text-2xl overflow-hidden truncate ... w-52">
+                Light sofa something
+              </h3>
               <Heart />
+            </div>
+            <div className="mt-2">
+              <h4 className="font-medium text-lg">$180</h4>
+            </div>
+            <div className="mt-4">
+              <p className="font-normal text-sm text-[#9C9C9C]">
+                We provide selling or buying quality and marketable furniture
+                and have our own aesthetic in our furniture
+              </p>
             </div>
           </div>
         </div>
