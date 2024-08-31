@@ -21,7 +21,7 @@ const ProductCard = ({ product }: ProductProps) => {
       <Link href={`/product/${product.id}`}>
         <div>
           <Image
-            className="rounded-t-3xl w-full h-[300px] border"
+            className="rounded-t-3xl w-full h-[350px] lg:h-[300px] border"
             src={product.image || noImage}
             width={290}
             height={500}
