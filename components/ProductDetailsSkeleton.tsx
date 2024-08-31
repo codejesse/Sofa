@@ -1,6 +1,6 @@
 export default function ProductDetailsSkeleton() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mx-20 pt-20">
       <div className="bg-muted rounded-lg overflow-hidden">
         <div className="aspect-[4/3] bg-muted-foreground animate-pulse" />
       </div>

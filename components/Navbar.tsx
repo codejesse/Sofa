@@ -11,7 +11,7 @@ import { ChevronRightCircle, ShoppingBag } from "lucide-react";
 
 export default function Component() {
   return (
-    <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6 fixed bg-white">
+    <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6 fixed bg-white z-[999]">
       <Sheet>
         <SheetTrigger asChild>
           <Button variant="outline" size="icon" className="lg:hidden border-none">
@@ -22,7 +22,7 @@ export default function Component() {
         <SheetContent side="left">
           <div className="flex w-full items-center justify-between px-4 py-4 sm:px-6">
             <Link href="/" className="flex items-center" prefetch={false}>
-              <Image className="ml-[-20px]" src="/logo.svg" width={150} height={150} alt="logo" />
+              <Image priority className="ml-[-20px]" src="/logo.svg" width={150} height={150} alt="logo" />
               <span className="sr-only">Sofa Inc</span>
             </Link>
             <Button variant="outline" size="icon" className="lg:hidden">
@@ -67,7 +67,7 @@ export default function Component() {
         className="flex items-center mr-6 hidden lg:flex"
         prefetch={false}
       >
-        <Image src="/logo.svg" width={150} height={150} alt="logo" />
+        <Image priority src="/logo.svg" width={150} height={150} alt="logo" />
         <span className="sr-only">Sofa Inc</span>
       </Link>
       <div className="flex w-full justify-center">
