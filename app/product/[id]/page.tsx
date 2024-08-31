@@ -52,7 +52,7 @@ export default function Page({ params }: { params: { id: string } }) {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-14 lg:pt-24 lg:p-48 p-8">
         <div>
           <Image
-            className="border w-full h-[400px] rounded-2xl"
+            className="border w-full lg:h-[400px] rounded-2xl"
             src={product.image || NoImage}
             width={300}
             height={100}
