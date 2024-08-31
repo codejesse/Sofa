@@ -14,15 +14,34 @@ export default function Component() {
     <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6 fixed bg-white z-[999]">
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="outline" size="icon" className="lg:hidden border-none">
+          <Button
+            variant="outline"
+            size="icon"
+            className="lg:hidden border-none"
+          >
             <MenuIcon className="h-6 w-6" />
             <span className="sr-only">Toggle navigation menu</span>
           </Button>
         </SheetTrigger>
+        <Image
+          priority
+          className="flex lg:hidden md:ml-64 justify-center"
+          src="/logo.svg"
+          width={150}
+          height={150}
+          alt="logo"
+        />
         <SheetContent className="z-[999]" side="left">
           <div className="flex w-full items-center justify-between px-4 py-4 sm:px-6">
             <Link href="/" className="flex items-center" prefetch={false}>
-              <Image priority className="ml-[-20px]" src="/logo.svg" width={150} height={150} alt="logo" />
+              <Image
+                priority
+                className="ml-[-20px]"
+                src="/logo.svg"
+                width={150}
+                height={150}
+                alt="logo"
+              />
               <span className="sr-only">Sofa Inc</span>
             </Link>
             <Button variant="outline" size="icon" className="lg:hidden">
@@ -127,6 +146,9 @@ export default function Component() {
           className="hidden lg:flex border-none"
         >
           <ShoppingBag className="h-6 w-6" />
+          <span className="w-4 h-4 bg-black text-white m-auto rounded-full absolute ml-6 mb-2">
+            <p className="text-center mt-[-3px]">0</p>
+          </span>
           <span className="sr-only">Shopping bag</span>
         </Button>
         {/* <Image src="/logo.svg" width={200} height={200} alt="logo" /> */}

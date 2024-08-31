@@ -10,14 +10,14 @@ export const metadata: Metadata = {
   description: "Shop deals on furniture.",
 };
 
-export default function RootLayout({
+export default function CreateLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={syne.className}>{children}</body>
-    </html>
+    <section>
+      {children}
+    </section>
   );
 }

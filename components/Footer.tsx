@@ -1,8 +1,20 @@
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 export const Footer = () => {
   return (
     <footer className="flex flex-col items-center bg-none text-center text-surface border-t-[1px]">
+      <Link href="/">
+        <Image
+          priority
+          className="mb-[-20px] mt-4"
+          src="/logo.svg"
+          width={150}
+          height={150}
+          alt="logo"
+        />
+      </Link>
       <div className="container pt-9">
         <div className="mb-6 flex justify-center space-x-2">
           <a
@@ -109,8 +121,8 @@ export const Footer = () => {
         </div>
       </div>
       <div className="w-full bg-none p-4 text-center">
-        © 2024 Copyright:
-        <a href="https://tw-elements.com/">Sofa Inc</a>
+        © 2024 Copyright 
+        <a href="https://tw-elements.com/"> Sofa Inc</a>
       </div>
     </footer>
   );

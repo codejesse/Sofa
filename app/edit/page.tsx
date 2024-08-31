@@ -19,7 +19,7 @@ const page = ({
   created_at,
 }: ProductProps) => {
   return (
-    <div>
+    <div className="pt-20">
       <h1 className="font-semibold text-4xl text-center">
         Edit a product entry
       </h1>

@@ -2,13 +2,14 @@ import ProductDetailsSkeleton from "@/components/ProductDetailsSkeleton";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Heart, ShoppingBag } from "lucide-react";
+import { Heart, ShoppingBag, Tag } from "lucide-react";
 
+//Fetch product details with params
 export default function Page({ params }: { params: { id: string } }) {
   return (
     <div>
       {/* <ProductDetailsSkeleton /> */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-14 lg:pt-24 lg:p-48 m-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-14 lg:pt-24 lg:p-48 p-8">
         <div>
           <Image
             className="border w-full h-fit rounded-2xl"
@@ -38,6 +39,17 @@ export default function Page({ params }: { params: { id: string } }) {
                 We provide selling or buying quality and marketable furniture
                 and have our own aesthetic in our furniture
               </p>
+            </div>
+            <div className="flex flex-row mt-3">
+              <div className="flex-1 flex-row gap-2">
+                <div className="flex flex-row gap-2">
+                  <Tag />
+                  <p>Category</p>
+                </div>
+              </div>
+              <div>
+                <p>Furniture</p>
+              </div>
             </div>
           </div>
         </div>
