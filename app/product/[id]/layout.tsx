@@ -15,7 +15,7 @@ export async function generateMetadata({
   const product = await db.products.get(productId);
 
   if (!product) {
-    return notFound(); // Return a 404 if the product is not found
+    return notFound();
   }
 
   return {

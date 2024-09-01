@@ -14,6 +14,12 @@ First, clone the project:
 git clone https://github.com/codejesse/Sofa.git
 ```
 
+Secondly, install the dependencies:
+
+```bash
+npm install
+```
+
 Then, start the development server:
 
 ```bash

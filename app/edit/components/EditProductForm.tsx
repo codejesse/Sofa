@@ -87,7 +87,7 @@ export default function EditProduct() {
 
   return (
     <div className="container mx-auto mt-10">
-      <div className="mb-4 mx-14 lg:mx-80 mt-10">
+      <div className="mb-4 lg:mx-80 mt-10">
         <label className="block mb-2 text-sm font-medium text-gray-900">
           Select Product
         </label>
@@ -107,7 +107,7 @@ export default function EditProduct() {
       {selectedProduct && (
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-8 mx-14 lg:mx-80 mt-10"
+          className="space-y-8 lg:mx-80 mt-10"
         >
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-900">
