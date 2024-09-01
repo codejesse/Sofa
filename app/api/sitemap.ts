@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
     const products = await db.products.toArray();
     products.forEach((product) => {
       links.push({
-        url: `/products/${product.id}`, // Assuming your product detail page uses /products/[id]
+        url: `/products/${product.id}`, 
         changefreq: "weekly",
         priority: 0.8,
       });
