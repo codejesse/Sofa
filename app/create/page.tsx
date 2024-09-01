@@ -2,15 +2,16 @@ import React from "react";
 import { AddProductForm } from "./components/AddProductForm";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { Product } from "../types";
 
-interface ProductProps {
-  name: string;
-  description: string;
-  price: number;
-  category: string;
-  image: string;
-  created_at: string;
-}
+// interface ProductProps {
+//   name: string;
+//   description: string;
+//   price: number;
+//   category: string;
+//   image: string;
+//   created_at: string;
+// }
 
 const page = ({
   name,
@@ -19,7 +20,7 @@ const page = ({
   category,
   image,
   created_at,
-}: ProductProps) => {
+}: Product) => {
   return (
     <div className="pt-20">
       <h1 className="font-semibold text-4xl text-center">

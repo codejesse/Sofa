@@ -6,4 +6,14 @@ export interface Product {
   price: number;
   category: string;
   image: string;
+  created_at: string;
 }
+
+// interface ProductProps {
+//   name: string;
+//   description: string;
+//   price: number;
+//   category: string;
+//   image: string;
+//   created_at: string;
+// }
