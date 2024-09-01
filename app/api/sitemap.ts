@@ -1,25 +1,48 @@
-import { MetadataRoute } from "next";
-import { db } from "@/lib/db";
+import { SitemapStream, streamToPromise } from "sitemap";
+import { Readable } from "stream";
+import { NextRequest, NextResponse } from "next/server";
+import { db } from "@/lib/db"; // Update the path as needed
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Fetch product data from Dexie.js
-  const products = await db.products.toArray();
+export async function GET(req: NextRequest) {
+  try {
+    const links: Array<{ url: string; changefreq: string; priority: number }> =
+      [];
 
-  // Define the base URL for your site
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://localhost:3000";
+    // Fetch all product data to include in the sitemap
+    const products = await db.products.toArray();
+    products.forEach((product) => {
+      links.push({
+        url: `/products/${product.id}`, // Assuming your product detail page uses /products/[id]
+        changefreq: "weekly",
+        priority: 0.8,
+      });
+    });
 
-  // Generate URLs for each product
-  const productUrls = products.map((product) => ({
-    url: `${baseUrl}/products/${product.id}`,
-    lastModified: new Date().toISOString(),
-  }));
+    // Add other static pages
+    const pages = ["/", "/about", "/contact"];
+    pages.forEach((url) => {
+      links.push({
+        url,
+        changefreq: "daily",
+        priority: 0.9,
+      });
+    });
 
-  // Add other static pages if necessary
-  const staticUrls = [
-    { url: `${baseUrl}/`, lastModified: new Date().toISOString() },
-    { url: `${baseUrl}/about`, lastModified: new Date().toISOString() },
-    { url: `${baseUrl}/contact`, lastModified: new Date().toISOString() },
-  ];
+    const stream = new SitemapStream({
+      hostname: `https://${req.headers.get("host")}`,
+    });
 
-  return [...staticUrls, ...productUrls];
+    const xmlString = await streamToPromise(
+      Readable.from(links).pipe(stream)
+    ).then((data) => data.toString());
+
+    return new NextResponse(xmlString, {
+      headers: {
+        "Content-Type": "application/xml",
+      },
+    });
+  } catch (e) {
+    console.error(e);
+    return new NextResponse("Error generating sitemap", { status: 500 });
+  }
 }
