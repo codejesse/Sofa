@@ -1,6 +1,8 @@
 ## 🛋 Sofa commerce
 
-![image](https://github.com/user-attachments/assets/7697fb78-c4b7-4282-b526-50964c596245)
+<!-- ![image](https://github.com/user-attachments/assets/7697fb78-c4b7-4282-b526-50964c596245) -->
+
+![image](https://github.com/user-attachments/assets/44745615-a5dc-401f-b3cd-b6744dfc5d8c)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

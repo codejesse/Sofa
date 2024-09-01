@@ -149,7 +149,7 @@ export default function Component() {
         >
           <ShoppingBag className="h-6 w-6" />
           <span className="w-4 h-4 bg-black text-white m-auto rounded-full absolute ml-6 mb-2">
-            <p className="text-center mt-[-3px]">0</p>
+            <p className="text-center mt-[-3px]">1</p>
           </span>
           <span className="sr-only">Shopping bag</span>
         </Button>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { useLiveQuery } from "dexie-react-hooks";
 import { Filter, X } from "lucide-react";
@@ -20,28 +20,29 @@ import { db } from "@/lib/db";
 import { SkeletonCard } from "./SkeletonCard";
 
 const ProductCard = dynamic(() => import("../components/ProductCard"), {
-  //make this a skeleton loader
   loading: () => <SkeletonCard />,
 });
 
-function FilterComponent() {
-  const [selectedCategories, setSelectedCategories] = useState<any>([]);
-  // const [priceRange, setPriceRange] = useState<number>([0, 100]);
-  const handleCategoryChange = (category: any) => {
+function FilterComponent({ applyFilters }: any) {
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [priceRange, setPriceRange] = useState<number[]>([0, 100]);
+
+  const handleCategoryChange = (category: string) => {
     if (selectedCategories.includes(category)) {
-      setSelectedCategories(
-        selectedCategories.filter((c: any) => c !== category)
-      );
+      setSelectedCategories(selectedCategories.filter((c) => c !== category));
     } else {
       setSelectedCategories([...selectedCategories, category]);
     }
   };
-  // const handlePriceRangeChange = (value:any) => {
-  //   setPriceRange(value);
-  // };
-  const handleApplyFilters = () => {
-    console.log("Applying filters:", { selectedCategories, });
+
+  const handlePriceRangeChange = (value: number[]) => {
+    setPriceRange(value);
   };
+
+  const handleApplyFilters = () => {
+    applyFilters(selectedCategories, priceRange);
+  };
+
   return (
     <Drawer>
       <DrawerTrigger asChild>
@@ -65,39 +66,39 @@ function FilterComponent() {
             <div className="mt-2 grid gap-2">
               <Label className="flex items-center gap-2">
                 <Checkbox
-                  checked={selectedCategories.includes("clothing")}
-                  onCheckedChange={() => handleCategoryChange("clothing")}
+                  checked={selectedCategories.includes("furniture")}
+                  onCheckedChange={() => handleCategoryChange("furniture")}
                 />
-                Clothing
+                Furniture
               </Label>
               <Label className="flex items-center gap-2">
                 <Checkbox
-                  checked={selectedCategories.includes("electronics")}
-                  onCheckedChange={() => handleCategoryChange("electronics")}
+                  checked={selectedCategories.includes("chair")}
+                  onCheckedChange={() => handleCategoryChange("chair")}
                 />
-                Electronics
+                Chair
               </Label>
               <Label className="flex items-center gap-2">
                 <Checkbox
-                  checked={selectedCategories.includes("home")}
-                  onCheckedChange={() => handleCategoryChange("home")}
+                  checked={selectedCategories.includes("table")}
+                  onCheckedChange={() => handleCategoryChange("table")}
                 />
-                Home
+                Table
               </Label>
               <Label className="flex items-center gap-2">
                 <Checkbox
-                  checked={selectedCategories.includes("outdoor")}
-                  onCheckedChange={() => handleCategoryChange("outdoor")}
+                  checked={selectedCategories.includes("lamp")}
+                  onCheckedChange={() => handleCategoryChange("lamp")}
                 />
-                Outdoor
+                Lamp
               </Label>
             </div>
           </div>
-          {/* <div>
+          <div>
             <h3 className="text-base font-medium">Price Range</h3>
             <div className="mt-2">
               <Slider
-                value={[priceRange]}
+                value={priceRange}
                 onValueChange={handlePriceRangeChange}
                 max={500}
                 step={10}
@@ -108,7 +109,7 @@ function FilterComponent() {
                 <span>${priceRange[1]}</span>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
         <div className="mt-6 flex justify-end gap-2">
           <Button variant="outline" onClick={handleApplyFilters}>
@@ -122,16 +123,27 @@ function FilterComponent() {
 
 //product list component: iterates through data from dexiedb
 const ProductList: FC = () => {
-  const [products, setProducts] = useState({
-    id: null,
-    name: "",
-    description: "",
-    image: "",
-    category: "",
-    price: 0,
-  });
-
+  const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
   const productData = useLiveQuery(() => db.products.toArray());
+
+  const applyFilters = (selectedCategories: string[], priceRange: number[]) => {
+    const filtered = productData?.filter((product) => {
+      const matchesCategory = selectedCategories.length
+        ? selectedCategories.includes(product.category)
+        : true;
+      const matchesPrice =
+        product.price >= priceRange[0] && product.price <= priceRange[1];
+      return matchesCategory && matchesPrice;
+    });
+    setFilteredProducts(filtered || []);
+  };
+
+  // Initialize filteredProducts with all products when the component mounts
+  useEffect(() => {
+    if (productData) {
+      setFilteredProducts(productData);
+    }
+  }, [productData]);
 
   return (
     <>
@@ -141,19 +153,17 @@ const ProductList: FC = () => {
         </h3>
         <div className="flex flex-row gap-2">
           {/* <Filter className="my-auto justify-end" /> */}
-          <FilterComponent />
+          <FilterComponent applyFilters={applyFilters} />
           {/* <p className="hidden lg:block md:block my-auto">Filters</p> */}
         </div>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 justify-items-center">
-        {!productData ? (
+        {filteredProducts.length === 0 ? (
           <p>No products found</p>
         ) : (
-          <>
-            {productData?.map((product: any, index: number) => {
-              return <ProductCard product={product} />;
-            })}
-          </>
+          filteredProducts.map((product: any, index: number) => {
+            return <ProductCard key={product.id} product={product} />;
+          })
         )}
       </div>
     </>
