@@ -145,7 +145,7 @@ export default function Component() {
         <Button
           variant="outline"
           size="icon"
-          className="hidden lg:flex border-none"
+          className="hidden lg:flex border-none cursor-not-allowed"
         >
           <ShoppingBag className="h-6 w-6" />
           <span className="w-4 h-4 bg-black text-white m-auto rounded-full absolute ml-6 mb-2">
