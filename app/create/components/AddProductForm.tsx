@@ -16,15 +16,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
-
-interface Props {
-  name: string;
-  description: string;
-  price: number;
-  category: string;
-  image: string;
-  created_at: string;
-}
+import { Product } from "@/app/types";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -41,14 +33,7 @@ const formSchema = z.object({
   created_at: z.string(),
 });
 
-export function AddProductForm({
-  name,
-  description,
-  price,
-  category,
-  image,
-  created_at,
-}: Props) {
+export function AddProductForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {

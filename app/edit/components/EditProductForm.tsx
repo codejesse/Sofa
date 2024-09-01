@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { db } from "@/lib/db";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -9,6 +9,7 @@ import { useLiveQuery } from "dexie-react-hooks";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Trash } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -69,7 +70,9 @@ export default function EditProduct() {
     }
   }
 
-  console.log(products);
+  const handleDelete = useCallback(async (id: any) => {
+    await db.products.delete(id);
+  }, []);
 
   return (
     <div className="container mx-auto mt-10">
