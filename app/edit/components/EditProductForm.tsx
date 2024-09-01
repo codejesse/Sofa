@@ -25,8 +25,6 @@ const formSchema = z.object({
   image: z.string(),
 });
 
-//TO DO: implement delete button
-
 export default function EditProduct() {
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
   const [status, setStatus] = useState("");
@@ -70,9 +68,22 @@ export default function EditProduct() {
     }
   }
 
-  const handleDelete = useCallback(async (id: any) => {
-    await db.products.delete(id);
-  }, []);
+  const handleDelete = useCallback(async () => {
+    if (!selectedProduct) {
+      setStatus("No product selected.");
+      return;
+    }
+
+    try {
+      // Delete the selected product
+      await db.products.delete(selectedProduct.id);
+      setStatus(`Product ${selectedProduct.name} successfully deleted.`);
+      setSelectedProduct(null);
+      form.reset(); // Reset the form after deletion
+    } catch (error) {
+      setStatus(`Failed to delete product: ${error}`);
+    }
+  }, [selectedProduct, form]);
 
   return (
     <div className="container mx-auto mt-10">
@@ -135,7 +146,13 @@ export default function EditProduct() {
             </label>
             <Input {...form.register("image")} placeholder="Image URL" />
           </div>
-          <Button type="submit">Update Product</Button>
+          <div className="flex gap-4">
+            <Button type="submit">Update Product</Button>
+            <Button variant="destructive" onClick={handleDelete}>
+              <Trash className="mr-2" />
+              Delete Product
+            </Button>
+          </div>
         </form>
       )}
       {status && <p className="mt-4 text-green-600">{status}</p>}
