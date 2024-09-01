@@ -9,8 +9,8 @@ import { Heart, ShoppingBag, Tag } from "lucide-react";
 import { Product } from "@/app/types";
 import NoImage from "../../no-image.png";
 
-//Fetch product details with params
 //TO DO: add toast message for each activity
+//TO DO: metadata for products
 export default function Page({ params }: { params: { id: string } }) {
   const id = params.id;
   const [product, setProduct] = useState<Product | null>(null);

@@ -79,7 +79,7 @@ export default function EditProduct() {
       await db.products.delete(selectedProduct.id);
       setStatus(`Product ${selectedProduct.name} successfully deleted.`);
       setSelectedProduct(null);
-      form.reset(); // Reset the form after deletion
+      form.reset();
     } catch (error) {
       setStatus(`Failed to delete product: ${error}`);
     }
