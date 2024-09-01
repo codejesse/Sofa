@@ -23,14 +23,16 @@ export default function Component() {
             <span className="sr-only">Toggle navigation menu</span>
           </Button>
         </SheetTrigger>
-        <Image
-          priority
-          className="flex lg:hidden md:ml-64 justify-center"
-          src="/logo.svg"
-          width={150}
-          height={150}
-          alt="logo"
-        />
+        <Link className="flex" href="/">
+          <Image
+            priority
+            className="flex lg:hidden md:ml-64 justify-center"
+            src="/logo.svg"
+            width={250}
+            height={150}
+            alt="logo"
+          />
+        </Link>
         <SheetContent className="z-[999]" side="left">
           <div className="flex w-full items-center justify-between px-4 py-4 sm:px-6">
             <Link href="/" className="flex items-center" prefetch={false}>

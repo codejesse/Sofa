@@ -1,9 +1,7 @@
 "use client";
 
 import ProductDetailsSkeleton from "@/components/ProductDetailsSkeleton";
-import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { db } from "@/lib/db";
 import { Button } from "@/components/ui/button";
@@ -12,6 +10,7 @@ import { Product } from "@/app/types";
 import NoImage from "../../no-image.png";
 
 //Fetch product details with params
+//TO DO: add toast message for each activity
 export default function Page({ params }: { params: { id: string } }) {
   const id = params.id;
   const [product, setProduct] = useState<Product | null>(null);
