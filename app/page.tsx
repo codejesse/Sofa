@@ -24,14 +24,11 @@ export default function Home() {
       <div className="flex flex-col lg:flex-row gap-4 mx-auto text-center lg:m-20">
         <div className="flex flex-col mx-8 lg:mx-auto">
           <h1 className="font-semibold text-5xl lg:text-left">
-            Our Product List
+            Welcome to Sofa
           </h1>
           <p className="text-[16px] text-[#9C9C9C] lg:text-left">
             We provide selling or buying quality and marketable furniture and
             have our own aesthetic in our furniture.
-          </p>
-          <p className="text-[16px] text-[#9C9C9C] lg:text-left">
-            check out our latest furniture listings below
           </p>
           <Button className="mt-4 lg:w-8/12">Get started</Button>
         </div>

@@ -17,7 +17,7 @@ interface ProductProps {
 
 const ProductCard = ({ product }: ProductProps) => {
   return (
-    <div>
+    <div className="w-full">
       <Link href={`/product/${product.id}`}>
         <div>
           <Image
