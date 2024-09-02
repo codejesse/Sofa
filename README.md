@@ -1,45 +1,86 @@
-## 🛋 Sofa commerce
+# 🛋 Sofa Commerce
 
+![Sofa Commerce Banner](https://github.com/user-attachments/assets/44745615-a5dc-401f-b3cd-b6744dfc5d8c)
 
-![image](https://github.com/user-attachments/assets/44745615-a5dc-401f-b3cd-b6744dfc5d8c)
+Sofa Commerce is a Next.js-based e-commerce platform where you can shop the best deals on furniture. The project is optimized for performance and SEO, offering a seamless shopping experience.
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 🛠 Getting Started
 
-## Getting Started with Sofa
+### Prerequisites
 
-First, clone the project:
+- Node.js (v14.x or later)
+- npm, yarn, pnpm, or bun as your package manager
 
-```bash
-git clone https://github.com/codejesse/Sofa.git
-```
+### Installation
 
-Secondly, install the dependencies:
+1. **Clone the repository:**
 
-```bash
-npm install
-```
+   ```bash
+   git clone https://github.com/codejesse/Sofa.git
+   ```
 
-Then, start the development server:
+2. **Navigate to the project directory:**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+   ```bash
+   cd Sofa
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. **Install dependencies:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font, but i'm using the "syne" font
+4. **Start the development server:**
 
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
 
-## Deploy on Vercel
+5. **Open the application:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 📦 Project Structure
+
+- **app/**: Contains the core Next.js pages and layouts.
+- **components/**: Reusable UI components such as buttons, inputs, and sliders.
+- **lib/**: Contains utility functions and the `db.ts` file for Dexie.js database setup.
+- **public/**: Static assets like images and icons.
+- **styles/**: Global styles using TailwindCSS.
+
+## 🛠️ Design Decisions & Optimizations
+
+- **Dexie.js for Client-side Storage**: The app uses Dexie.js to handle client-side data storage, ensuring quick access to products and cart items even without a server connection.
+- **Dynamic Metadata**: The project uses Next.js' `generateMetadata` to dynamically set metadata for product pages based on the product’s details, enhancing SEO. (⚠️ Drawback: Using Dexie.js, which is a client-side database, 
+generating metadata dynamically on the server side in a Next.js 
+- **Api route**: /products /product/[id].js didn't also work due to the client-side nature of dexiejs
+generateMetadata function isn't possible. This is because generateMetadata runs on the server, 
+but Dexie is not accessible in that context. 🛠 So defaulted to static metadata on dynamic route for temp-fix)
+- **Static Metadata for Main Pages**: Static metadata is defined in the `app/layout.tsx` to ensure that essential pages have optimized SEO.
+- **ShadCN**: A collection of open-source, customizable React components that can be used to create user interfaces for websites and applications.
+
+## 🚀 SEO Strategy
+
+- **Dynamic Metadata**: Each product page generates dynamic metadata, including the product name, description, and image. This improves search engine visibility for individual products.
+- **Static Metadata**: Core pages like the home page and category pages have predefined metadata to ensure they are indexed correctly by search engines.
+- **Sitemap**: A sitemap is generated using the `sitemap` npm package, which includes all product URLs and key pages. This helps search engines crawl the site efficiently.
+
+## 🚀 Deployment
+
+The project is deployed using Vercel, offering seamless integration with Next.js for both static and server-side rendered pages.
+
+Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details on how to deploy your own version.
+
