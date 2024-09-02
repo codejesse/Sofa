@@ -1,7 +1,3 @@
-Here’s the updated README file with a detailed explanation of the issues you encountered:
-
----
-
 # 🛋 Sofa Commerce
 
 ![Sofa Commerce Banner](https://github.com/user-attachments/assets/44745615-a5dc-401f-b3cd-b6744dfc5d8c)
@@ -95,7 +91,3 @@ Sofa Commerce is a Next.js-based e-commerce platform where you can shop the best
 The project is deployed using Vercel, offering seamless integration with Next.js for both static and server-side rendered pages.
 
 Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details on how to deploy your own version.
-
---- 
-
-This README now covers the encountered challenges, optimizations, and trade-offs while building Sofa Commerce. Let me know if you need further adjustments!
