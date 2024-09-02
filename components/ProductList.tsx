@@ -18,6 +18,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Slider } from "@/components/ui/slider";
 import { db } from "@/lib/db";
 import { SkeletonCard } from "./SkeletonCard";
+import Image from "next/image";
 
 const ProductCard = dynamic(() => import("../components/ProductCard"), {
   loading: () => <SkeletonCard />,
@@ -159,7 +160,10 @@ const ProductList: FC = () => {
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 justify-items-center">
         {filteredProducts.length === 0 ? (
-          <p>No products found</p>
+          <div className="grid m-auto justify-center">
+            <Image className="m-auto" src="/icon.png" width={40} height={40} alt="sofa-icon" />
+            <h2 className="text-lg">No products found</h2>
+          </div>
         ) : (
           filteredProducts.map((product: any, index: number) => {
             return <ProductCard key={product.id} product={product} />;
