@@ -68,6 +68,7 @@ Sofa Commerce is a Next.js-based e-commerce platform where you can shop the best
   - ⚠️ **Drawback**: Since Dexie.js is not accessible in a server-side context, this prevents dynamic metadata generation using `generateMetadata`. As a temporary fix, we defaulted to static metadata for product pages.
 - **Static Metadata for Main Pages**: Static metadata is defined in the `app/layout.tsx` to ensure that essential pages have optimized SEO.
 - **ShadCN**: A collection of open-source, customizable React components that can be used to create user interfaces for websites and applications.
+ - **Create & Edit**: Create route for creating new product entries, and the edit route for editing existing products and deleting product listings.
 
 ## 🐛 Issues & Trade-offs
 
