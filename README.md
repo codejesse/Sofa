@@ -99,10 +99,9 @@ Sofa Commerce is a Next.js-based e-commerce platform where you can shop the best
 To run the tests, use the following command:
 
 ```bash
-Copy code
 npm run test
 ```
-The tests are located in the __tests__/ directory and cover various aspects of the database functionalities, ensuring that the core data management features work as expected.
+🎯 The tests are located in the __tests__/ directory and cover various aspects of the database functionalities, ensuring that the core data management features work as expected.
 
 ## 🚀 Deployment
 
