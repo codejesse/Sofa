@@ -68,16 +68,18 @@ Sofa Commerce is a Next.js-based e-commerce platform where you can shop the best
   - ⚠️ **Drawback**: Since Dexie.js is not accessible in a server-side context, this prevents dynamic metadata generation using `generateMetadata`. As a temporary fix, we defaulted to static metadata for product pages.
 - **Static Metadata for Main Pages**: Static metadata is defined in the `app/layout.tsx` to ensure that essential pages have optimized SEO.
 - **ShadCN**: A collection of open-source, customizable React components that can be used to create user interfaces for websites and applications.
- - **Create & Edit**: Create route for creating new product entries, and the edit route for editing existing products and deleting product listings.
+- **Create & Edit**: Create /create route for creating new product entries, and the edit /edit route for editing existing products and deleting product listings.
 
 ## 🐛 Issues & Trade-offs
 
 ### API Routes
+
 - **Problem**: API routes like `/products` and `/product/[id].ts` don’t return product data.
 - **Cause**: The primary reason is that Dexie.js is a client-side only library, meaning it runs exclusively in the browser and cannot be accessed in Next.js API routes, which execute on the server side.
 - **Temporary Solution**: Since Dexie.js can’t be used on the server, these API routes currently do not function as expected. The routes will require either a separate backend database or a different solution for server-side data fetching.
 
 ### SEO Handling with `generateMetadata`
+
 - **Problem**: The use of Dexie.js also affects the SEO strategy. Next.js' `generateMetadata` function runs on the server, where it attempts to fetch product data. However, Dexie.js operates only in the client, causing the metadata generation to fail.
 - **Temporary Fix**: As a workaround, we opted for static metadata on dynamic product pages to maintain SEO functionality while further solutions are considered.
 
