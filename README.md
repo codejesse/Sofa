@@ -89,6 +89,21 @@ Sofa Commerce is a Next.js-based e-commerce platform where you can shop the best
 - **Static Metadata**: To ensure the core pages and some dynamic product pages still have proper SEO, static metadata is predefined in the `app/layout.tsx` and `app/product/[id]/layout.tsx`.
 - **Sitemap**: A sitemap is generated using the `sitemap` npm package, which includes all product URLs and key pages. This helps search engines crawl the site efficiently.
 
+## ✅ Testing
+- **Unit Testing with Jest**: implemented unit tests using Jest to ensure the reliability and correctness of the Dexie.js database operations.
+
+- **Tested Features**: Product data interactions with Dexie.js. Database CRUD operations including adding, updating, and retrieving data.
+
+- **Running Tests**:
+
+To run the tests, use the following command:
+
+```bash
+Copy code
+npm run test
+```
+The tests are located in the __tests__/ directory and cover various aspects of the database functionalities, ensuring that the core data management features work as expected.
+
 ## 🚀 Deployment
 
 The project is deployed using Vercel, offering seamless integration with Next.js for both static and server-side rendered pages.
