@@ -1,5 +1,5 @@
 // __tests__/db.test.ts
-import { db } from "@/lib/db";
+import { db } from "@/__mocks__/dexie";
 
 describe("Dexie.js Database", () => {
   beforeEach(async () => {

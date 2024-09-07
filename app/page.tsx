@@ -30,7 +30,9 @@ export default function Home() {
             We provide selling or buying quality and marketable furniture and
             have our own aesthetic in our furniture.
           </p>
-          <Button className="mt-4 md:w-5/12 md:m-auto lg:m-1 lg:w-8/12">Get started</Button>
+          <Button className="mt-6 md:w-5/12 md:m-auto lg:m-1 lg:w-5/12">
+            Get started
+          </Button>
         </div>
         <Image
           className="w-full h-fit lg:mt-[-50px] mr-[-300px] lg:ml-20"

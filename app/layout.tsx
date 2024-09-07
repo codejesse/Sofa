@@ -3,7 +3,7 @@ import { Inter, Syne } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import { Footer } from "@/components/Footer";
-import OgImage from "./sofa-og.png"
+import OgImage from "./sofa-og.png";
 
 const inter = Inter({ subsets: ["latin"] });
 const syne = Syne({ subsets: ["latin"] });
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: "Sofa Store",
     images: [
       {
-        url: "/sofa-og.png",
+        url: "https://res.cloudinary.com/daiio9iqt/image/upload/v1725306571/8845e51a-1635-440e-bdfb-8e2cacda234d.png",
         width: 1200,
         height: 630,
         alt: "Sofa Store - Best furniture deals",
@@ -31,7 +31,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sofa Store | Home",
     description: "Discover the best deals on furniture at Sofa Store.",
-    images: ["https://res.cloudinary.com/daiio9iqt/image/upload/v1725306571/8845e51a-1635-440e-bdfb-8e2cacda234d.png"],
+    images: [
+      "https://res.cloudinary.com/daiio9iqt/image/upload/v1725306571/8845e51a-1635-440e-bdfb-8e2cacda234d.png",
+    ],
   },
 };
 
